@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Score</title>
+</head>
+<body>
+<h2>Scores</h2>
+<table>
+    <tr>
+        <th>Quiz Id</th>
+        <th>Quiz Score</th>
+    </tr>
+    {%for ind in range(scores |length)%}
+      <tr>
+        <td>{{scores[ind].id}}</td>
+        <td>{{scores[ind].score}}</td>
+      </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

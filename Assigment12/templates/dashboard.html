@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+<h2>STUDENTS</h2>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    {%for ind in range(students |length)%}
+      <tr>
+        <td>{{students[ind].id}}</td>
+        <td>{{students[ind].first_name}}</td>
+        <td>{{students[ind].last_name}}</td>
+        <td>
+            <form action="{{'/student/' ~ students[ind].id}}" method="get">
+            <input type="submit" value="view scores">
+        </form>
+        </td>
+      </tr>
+    {% endfor %}
+</table>
+<H2>QUIZZES</H2>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Subject</th>
+        <th>Question Num</th>
+        <th>Date</th>
+    </tr>
+    {%for ind in range(quizzes |length)%}
+      <tr>
+        <td>{{quizzes[ind].id}}</td>
+        <td>{{quizzes[ind].subject}}</td>
+        <td>{{quizzes[ind].question_num}}</td>
+        <td>{{quizzes[ind].date}}</td>
+      </tr>
+    {% endfor %}
+</table>
+<form action="/student/add" method="get">
+    <input type="submit" value="Add Student">
+</form>
+<form action="/quiz/add" method="get">
+    <input type="submit" value="Add Quiz">
+</form>
+<form action="/results/add" method="get">
+    <input type="submit" value="Add Quiz Result">
+</form>
+</body>
+</html>
